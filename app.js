@@ -139,7 +139,7 @@ app.use("/api",roleRoutes)
 app.use("/api",fileUploadRoutes)
 
 
-const db=mongoose.connect("mongodb://127.0.0.1:27017/club5-node",{
+const db=mongoose.connect("mongodb+srv://krishapatel1403:root@cluster0.frdybmp.mongodb.net/club5-node",{
     useNewUrlParser: true,
     useUnifiedTopology:true
 })
