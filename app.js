@@ -20,6 +20,7 @@ const express=require('express')
 const app=express();  // create an instance of express application object and assign it to variable 'app'
 const mongoose=require('mongoose')
 const cors = require("cors");
+const config=require("./config")
 
 app.use(cors());
 
@@ -139,7 +140,7 @@ app.use("/api",roleRoutes)
 app.use("/api",fileUploadRoutes)
 
 
-const db=mongoose.connect("mongodb+srv://krishapatel1403:root@cluster0.frdybmp.mongodb.net/club5-node",{
+const db=mongoose.connect(config.DB_URL,{
     useNewUrlParser: true,
     useUnifiedTopology:true
 })
@@ -152,7 +153,7 @@ db.then(()=>{
 
 
 
-const PORT=3001
+const PORT=config.PORT;
 app.listen(PORT,()=>{
-    console.log("Server is running");
+    console.log("Server is running",PORT);
 })
